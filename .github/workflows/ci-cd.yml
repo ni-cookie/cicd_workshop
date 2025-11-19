@@ -28,13 +28,13 @@ jobs:
       - name: Log in to the Container registry
         uses: docker/login-action@v3
         with:
-          [cite_start]registry: ghcr.io 
-          [cite_start]username: ${{ github.actor }}
-          [cite_start]password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io 
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
-          [cite_start]push: true
+          push: true
           tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
